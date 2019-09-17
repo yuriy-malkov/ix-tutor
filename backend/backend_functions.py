@@ -2,13 +2,6 @@ from flask import Flask, request, jsonify
 
 APP = Flask(__name__)
 
-# test_users = json.dumps({
-#         'userID' : 1,
-#         'email' : "first@gmail.com",
-#         'password' : "password",
-#         'isTutor' : False,
-#         'isStudent' : False
-#     })
 count = 4
 test_users = [
     {
@@ -62,6 +55,9 @@ def create_user():
     print(request.data)
     email = request.json['email']
     password = request.json['password']
+    global count
+
+
     # new_user = User(email, password)
     
     #new_user.insert_into_db():
@@ -75,28 +71,28 @@ def create_user():
     # })
 
     test_users.append({
-        'userID' : 4,
+        'userID' : count,
         'email' : email,
         'password' : password,
         'isTutor' : False,
         'isStudent' : False
     })
 
-    # count += 1
+    count += 1
     return jsonify(test_users)
     
 
-@APP.route('/user/login', methods=['POST'])
+@APP.route('/user/login', methods=['GET'])
 def login():
     email = request.form['email']
     password = request.form['password']
     user = get_user(email, password)    
     print(user)
 
-
+@APP.route('/user/getUser', methods=['GET'])
 def get_user(email, password):
-    email = request.form['email']
-    password = request.form['password']
+    email = request.json['email']
+    password = request.json['password']
     for user in test_users:
         if user[email] == email and user[password] == password:
                  return jsonify(user)
