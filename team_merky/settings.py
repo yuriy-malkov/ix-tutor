@@ -75,16 +75,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'team_merky.wsgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'ixmerky',
-#         'USER': '',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',
-#         'PORT': '5432'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ixmerky',
+        'USER': 'postgres',
+        'PASSWORD': 'Kaf-Bih2',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
