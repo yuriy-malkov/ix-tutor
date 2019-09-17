@@ -1,0 +1,25 @@
+{
+  "name": "ix-tutor",
+  "version": "1.0.0",
+  "description": "IX Hackaton app 2019",
+  "main": "index.js",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "flask": "^0.2.10",
+    "jsonify": "0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuriy-malkov/ix-tutor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuriy-malkov/ix-tutor/issues"
+  },
+  "homepage": "https://github.com/yuriy-malkov/ix-tutor#readme"
+}

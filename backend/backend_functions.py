@@ -1,7 +1,38 @@
 from flask import Flask, request, jsonify
 
 APP = Flask(__name__)
+
+# test_users = json.dumps({
+#         'userID' : 1,
+#         'email' : "first@gmail.com",
+#         'password' : "password",
+#         'isTutor' : False,
+#         'isStudent' : False
+#     })
 count = 4
+test_users = [
+    {
+        'userID' : 1,
+        'email' : "first@gmail.com",
+        'password' : "password",
+        'isTutor' : False,
+        'isStudent' : False
+    },
+    {
+        'userID' : 2,
+        'email' : "second@gmail.com",
+        'password' : "password",
+        'isTutor' : True,
+        'isStudent' : False
+    },
+    {
+        'userID' : 3,
+        'email' : "third@gmail.com",
+        'password': "password",
+        'isTutor' : True,
+        'isStudent' : True
+    }
+]
 
 class User:
     def __init__(self, email, password):
@@ -31,26 +62,35 @@ def create_user():
     print(request.data)
     email = request.json['email']
     password = request.json['password']
-    new_user = User(email, password)
+    # new_user = User(email, password)
     
     #new_user.insert_into_db():
     
+    # test_users.append({
+    #     'userID' : 4,
+    #     'email' : new_user.email,
+    #     'password' : new_user.password,
+    #     'isTutor' : False,
+    #     'isStudent' : False
+    # })
+
     test_users.append({
-        userID : count,
-        email : new_user.email,
-        password : new_user.password,
-        isTutor : False,
-        isStudent : False
+        'userID' : 4,
+        'email' : email,
+        'password' : password,
+        'isTutor' : False,
+        'isStudent' : False
     })
-    count += 1
-    #return jsonify(new_user)
+
+    # count += 1
+    return jsonify(test_users)
     
 
 @APP.route('/user/login', methods=['POST'])
 def login():
     email = request.form['email']
     password = request.form['password']
-    user = get_user(email, password)
+    user = get_user(email, password)    
     print(user)
 
 
@@ -65,28 +105,3 @@ def get_user(email, password):
 
 if __name__ == '__main__':
     APP.run(host='0.0.0.0', port=80)
-
-
-test_users = [
-    {
-        userID : 1,
-        email : "first@gmail.com",
-        password : "password",
-        isTutor : False,
-        isStudent : False
-    },
-    {
-        userID : 2,
-        email : "second@gmail.com",
-        password : "password",
-        isTutor : True,
-        isStudent : False
-    },
-    {
-    userID : 3,
-        email : "third@gmail.com",
-        password : "password",
-        isTutor : True,
-        isStudent : True
-    }
-]
