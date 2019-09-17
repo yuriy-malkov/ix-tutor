@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'team_merky'
+    'team_merky',
+    'ix_tutor'
 ]
 
 MIDDLEWARE = [
