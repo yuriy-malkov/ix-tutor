@@ -1,11 +1,34 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-import uuid
-
 from django.db import models
 
 # Create your models here.
+
+class Departments(models.Model):
+    deptID = models.PositiveIntegerField(
+        primary_key=True,
+        null=False,
+        editable=False
+    )
+    name = models.TextField(
+        max_length=255
+    )
+    def __str__(self):
+        return 'Dept ID:' + str(self.deptID)
+
+class Interests(models.Model):
+
+    interestID = models.PositiveIntegerField(
+        primary_key=True,
+        null=False,
+        editable=False
+    )
+    name = models.TextField(
+        max_length=255
+    )
+    def __str__(self):
+        return 'Interest ID:' + str(self.interestID)
 
 class Users(models.Model):
     ACTIVE = 1
@@ -22,9 +45,9 @@ class Users(models.Model):
         (TUTOR, 'Tutor')
     )
 
-    userID = models.UUIDField(
+    userID = models.PositiveIntegerField(
         primary_key=True,
-        default=uuid.uuid4,
+        null=False,
         editable=False
     )
     email = models.EmailField(
@@ -37,30 +60,29 @@ class Users(models.Model):
     password = models.TextField(
         max_length=255
     )
-    isTutor = models.SmallIntegerField(
+    isTutor = models.PositiveIntegerField(
         choices=OCCUPATION,
         default=''
     )
-    isStudent = models.SmallIntegerField(
+    isStudent = models.PositiveIntegerField(
         choices=OCCUPATION,
         default=''
     )
     deptID = models.ForeignKey(
-        Departments
+        Departments,
+        on_delete=models.CASCADE
     )
     def __str__(self):
         return 'refers to departments reference:' + self.Departments.deptID
 
-class Departments(models.Model):
-
-    deptID = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        editable=False
-    )
-    name = models.TextField(
-        max_length=255
-    )
-
-    def __str__(self):
-        return 'Dept ID:' + str(self.deptID)
+class UserInterests(models.Model):
+        userID = models.ForeignKey(
+            'Users',
+            on_delete=models.CASCADE
+        )
+        interestID = models.ForeignKey(
+            'Interests',
+            on_delete=models.CASCADE
+        )
+        def __str__(self):
+            return 'refers to departments reference:' + self.Interests.interestID + self.Users.userID
