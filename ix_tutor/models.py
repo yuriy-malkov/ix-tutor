@@ -8,7 +8,6 @@ from django.db import models
 # Create your models here.
 
 class Users(models.Model):
-
     ACTIVE = 1
     DEACTIVE = 2
     STATUS_CHOICES = (
@@ -46,6 +45,22 @@ class Users(models.Model):
         choices=OCCUPATION,
         default=''
     )
-    #deptID = models.ForeignKey(
-    #    Departments
-    #)
+    deptID = models.ForeignKey(
+        Departments
+    )
+    def __str__(self):
+        return 'refers to departments reference:' + self.Departments.deptID
+
+class Departments(models.Model):
+
+    deptID = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False
+    )
+    name = models.TextField(
+        max_length=255
+    )
+
+    def __str__(self):
+        return 'Dept ID:' + str(self.deptID)
