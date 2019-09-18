@@ -21,6 +21,12 @@
 
     <p><input type="submit" value="login"></p>
     <input type="hidden" name="next" value="{{ next }}">
+  </form>
+  <form method="get" action="{% url 'register' %}">
+    {% csrf_token %}
+    <p><input type="submit" value="register"></p>
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
 </body>
 
 <!--
