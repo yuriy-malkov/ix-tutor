@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="UTF-8">
+  <title>The Index</title>
+</head>
+<body>
+  <h1>This is the index page!</h1>
+  {% if user.is_authenticated %}
+  <h2>Your name is {{ user.username }}</h2>
+  {% else %}
+  <h2>You are not logged in.</h2>
+  {% endif %}
+</body>
+</html>
+
+<!--
+
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <title>IX Tutor</title>
+  <link rel="shortcut icon" href="{% static "thalesApp/images/favicon.ico" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "thalesApp/css/integration.css" %}">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>   
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+  <div class="header-container" >
+    <img src="{% static "thalesApp/images/IX_LogoLarge.jpg" %}" class="logo"> 
+  </div>
+
+  <div class="body-container">
+
+    <h1 class="title">IX Tutor</h1>
+    <h2 class="subtitle">{{ message }}</h2>
+    <div>
+       <div class="container-follow">
+        <h1>Follow us!</h1>
+        <p>Stay current on programmatic insights and trends</p>
+        <div class="container-social">
+          <ul>
+            <li>
+              <a href="https://www.linkedin.com/company/index-platform" target="_blank">
+                <div class="container-social-img" id="linkedin">
+                </div>
+                <text>
+                  LinkedIn
+                </text>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/IndexExchange" target="_blank">
+                <div class="container-social-img" id="twitter">
+                </div>
+                <text>
+                 Twitter
+               </text>
+             </a>
+           </li>
+           <li>
+            <a href="https://www.facebook.com/indexexchange/" target="_blank">
+              <div class="container-social-img" id="facebook">
+              </div>
+              <text>
+                Facebook
+              </text>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/indexexchange/" target="_blank">
+              <div class="container-social-img" id="instagram">
+              </div>
+              <text>
+                Instagram
+              </text>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container-footer">
+      Copyright &#169; Index Exchange. All rights reserved. <a href="http://www.indexexchange.com/terms/" target="_blank" class="footer-link">Legal Notice</a> | <a href="http://www.indexexchange.com/privacy/" target="_blank" class="footer-link">Privacy Policy</a>
+    </div>
+  </div>
+
+
+-->

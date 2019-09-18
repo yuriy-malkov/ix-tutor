@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+  {% if form.errors %}
+  <p>There's something wrong with what you entered!</p>
+  {% endif %}
+
+  {% if next %}
+  <p>Hey, you can't access that page.</p>
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+
+    <p>Username: {{ form.username }}</p>
+    <p>Password: {{ form.password }}</p>
+
+    <p><input type="submit" value="login"></p>
+    <input type="hidden" name="next" value="{{ next }}">
+</body>
+
+<!--
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <title>IX Tutor</title>
+  <link rel="shortcut icon" href="{% static "ix_tutor/images/favicon.ico" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "ix_tutor/css/integration.css" %}">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>   
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="header-container" >
+    <img src="{% static "ix_tutor/images/IX_LogoLarge.jpg" %}" class="logo"> 
+  </div>
+
+  <div class="body-container">
+    <h1 class="title">IX Tutor</h1>
+    <h2 class="subtitle">Hello! Login with the credentials provided to you to begin testing.</h2>
+    <div>
+    </div>
+    <div>
+      <form method="post">
+        {% csrf_token %}
+        <div class="fieldset-container-div">
+          <div class="fieldset-div">
+            <fieldset>
+              <ul>
+                <li>
+                  {{ form.username.label_tag }}
+                  {{ form.username }}
+                </li>
+                 <li>
+                  {{ form.password.label_tag }}
+                  {{ form.password }}              
+                </li>
+                <li>
+                  <input type="submit" id="form-build-submit" class="green-button" value="Login">
+                </li>
+              </ul>
+              <ul>
+                {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+                <li>
+                  {{ form.username.errors }}
+                </li>
+                 <li>
+                  {{ form.password.errors }}           
+                </li>
+              </ul>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+      </div>
+       <div class="container-follow">
+        <h1>Follow us!</h1>
+        <p>Stay current on programmatic insights and trends</p>
+        <div class="container-social">
+          <ul>
+            <li>
+              <a href="https://www.linkedin.com/company/index-platform" target="_blank">
+                <div class="container-social-img" id="linkedin">
+                </div>
+                <text>
+                  LinkedIn
+                </text>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/IndexExchange" target="_blank">
+                <div class="container-social-img" id="twitter">
+                </div>
+                <text>
+                 Twitter
+               </text>
+             </a>
+           </li>
+           <li>
+            <a href="https://www.facebook.com/indexexchange/" target="_blank">
+              <div class="container-social-img" id="facebook">
+              </div>
+              <text>
+                Facebook
+              </text>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/indexexchange/" target="_blank">
+              <div class="container-social-img" id="instagram">
+              </div>
+              <text>
+                Instagram
+              </text>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container-footer">
+      Copyright &#169; Index Exchange. All rights reserved. <a href="http://www.indexexchange.com/terms/" target="_blank" class="footer-link">Legal Notice</a> | <a href="http://www.indexexchange.com/privacy/" target="_blank" class="footer-link">Privacy Policy</a>
+    </div>
+  </div>
+
+-->
+
+<!--
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
+-->
+
+<!-- templates/registration/login.html -->
