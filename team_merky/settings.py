@@ -86,7 +86,7 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config()
+db_from_env = dj_database_url.config('postgres')
 DATABASES['default'].update(db_from_env)
 
 # Database
